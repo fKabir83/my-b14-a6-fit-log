@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const getData = async () => {
   const response = await fetch(
@@ -14,91 +15,154 @@ const MainPage = async () => {
   const allData = await getData();
 
   return (
-    <section className="container mx-auto px-30 py-16">
 
-      {/* Section Heading */}
-      <div className="mb-10">
-        <p className="text-gray-500 mt-2">
-         Twelve lift covering every major muscle group.
-        </p>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-20">
+  {allData.map((workout: any) => (
+    <Link
+      href={`/workout/${workout.id}`}
+      key={workout.id}
+      className="block overflow-hidden rounded-[20px] bg-[#15171D] text-white shadow-lg border border-gray-300 hover:scale-[1.02] transition-transform duration-300 "
+    >
+      <div className="h-[260px] w-full">
+        <img
+          src={workout.image}
+          alt={workout.name}
+          className="h-full w-full object-cover"
+        />
       </div>
 
-      {/* Workout Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="p-8">
+        <div className="flex flex-wrap gap-3 mb-6">
+          {workout.muscleGroups.map((muscle: string) => (
+            <span
+              key={muscle}
+              className="rounded-full bg-[#C2F800] px-4 py-1 text-sm font-bold uppercase tracking-wide text-black"
+            >
+              {muscle}
+            </span>
+          ))}
+        </div>
 
-        {allData.map((workout: any) => (
-          <div
-            key={workout.id}
-            className="overflow-hidden rounded-[20px] bg-[#15171D] text-white shadow-lg border border-gray-300"
-          >
+        <h2 className="text-[18px] font-bold uppercase tracking-wide">
+          {workout.name}
+        </h2>
 
-            {/* Workout Image */}
-            {/* Workout Image */}
-<div className="h-[260px] w-full">
-  <img
-    src={workout.image}
-    alt={workout.name}
-    className="h-full w-full object-cover"
-  />
+        <p className="mt-2 text-gray-400 text-base">
+          {workout.equipment}
+        </p>
+
+        <div className="my-6 border-t border-gray-700"></div>
+
+        <div className="flex items-center gap-6 text-gray-400">
+          <div className="flex items-center gap-2">
+            <span className="text-xl">◷</span>
+            <span>{workout.duration} min</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-lg">♨</span>
+            <span>{workout.caloriesBurned} kcal</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xl">☆</span>
+            <span>{workout.rating}</span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}
 </div>
 
-            {/* Card Content */}
-            <div className="p-8">
 
-              {/* Muscle Groups */}
-              <div className="flex flex-wrap gap-3 mb-6">
-                {workout.muscleGroups.map((muscle: string) => (
-                  <span
-                    key={muscle}
-                    className="rounded-full bg-[#C2F800] px-4 py-1 text-sm font-bold uppercase tracking-wide text-black"
-                  >
-                    {muscle}
-                  </span>
-                ))}
-              </div>
 
-              {/* Workout Name */}
-              <h2 className="text-2xl font-bold uppercase tracking-wide">
-                {workout.name}
-              </h2>
+//     <section className="container mx-auto px-30 py-16">
 
-              {/* Equipment */}
-              <p className="mt-2 text-gray-400 text-base">
-                {workout.equipment}
-              </p>
+//       {/* Section Heading */}
+//       <div className="mb-10">
+//         <p className="text-gray-500 mt-2">
+//          Twelve lift covering every major muscle group.
+//         </p>
+//       </div>
 
-              {/* Divider */}
-              <div className="my-6 border-t border-gray-700"></div>
+//       {/* Workout Cards */}
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {/* Workout Information */}
-              <div className="flex items-center gap-6 text-gray-400">
+//         {allData.map((workout: any) => (
+//           <div
+//             key={workout.id}
+//             className="overflow-hidden rounded-[20px] bg-[#15171D] text-white shadow-lg border border-gray-300"
+//           >
 
-                {/* Duration */}
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">◷</span>
-                  <span>{workout.duration} min</span>
-                </div>
+//             {/* Workout Image */}
+//             {/* Workout Image */}
+// <div className="h-[260px] w-full">
+//   <img
+//     src={workout.image}
+//     alt={workout.name}
+//     className="h-full w-full object-cover"
+//   />
+// </div>
 
-                {/* Calories */}
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">♨</span>
-                  <span>{workout.caloriesBurned} kcal</span>
-                </div>
+//             {/* Card Content */}
+//             <div className="p-8">
 
-                {/* Rating */}
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">☆</span>
-                  <span>{workout.rating}</span>
-                </div>
+//               {/* Muscle Groups */}
+//               <div className="flex flex-wrap gap-3 mb-6">
+//                 {workout.muscleGroups.map((muscle: string) => (                  
+//                  <span
+//                     key={muscle}
+//                     className="rounded-full bg-[#C2F800] px-4 py-1 text-sm font-bold uppercase tracking-wide text-black"
+//                   >
+//                     {muscle}
+//                   </span>
+                
+                 
+//                 ))}
+//               </div>
 
-              </div>
+//               {/* Workout Name */}
+//               <h2 className="text-[18px] font-bold uppercase tracking-wide">
+//                 {workout.name}
+//               </h2>
 
-            </div>
-          </div>
-        ))}
+//               {/* Equipment */}
+//               <p className="mt-2 text-gray-400 text-base">
+//                 {workout.equipment}
+//               </p>
 
-      </div>
-    </section>
+//               {/* Divider */}
+//               <div className="my-6 border-t border-gray-700"></div>
+
+//               {/* Workout Information */}
+//               <div className="flex items-center gap-6 text-gray-400">
+
+//                 {/* Duration */}
+//                 <div className="flex items-center gap-2">
+//                   <span className="text-xl">◷</span>
+//                   <span>{workout.duration} min</span>
+//                 </div>
+
+//                 {/* Calories */}
+//                 <div className="flex items-center gap-2">
+//                   <span className="text-lg">♨</span>
+//                   <span>{workout.caloriesBurned} kcal</span>
+//                 </div>
+
+//                 {/* Rating */}
+//                 <div className="flex items-center gap-2">
+//                   <span className="text-xl">☆</span>
+//                   <span>{workout.rating}</span>
+//                 </div>
+
+//               </div>
+
+//             </div>
+//           </div>
+//         ))}
+
+//       </div>
+//     </section>
   );
 };
 
