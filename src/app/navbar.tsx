@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 // import logoimage from '../../public/logo.png'
 
 const Navbar = () => {
@@ -13,9 +14,18 @@ const Navbar = () => {
       <ul
         tabIndex={-1}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Worksout</a></li>
+        <li>
+          {/* <a>Worksout</a> */}
+          <Link href="./Homepage">
+                Workouts
+          </Link>
+          </li>
        
-        <li><a>My Plan</a></li>
+        <li>
+          <Link href="/my-plan">
+                My Plan
+           </Link>
+          </li>
       </ul>
     </div>
     
@@ -29,27 +39,48 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Worksout</a></li>
+      <li>
+        {/* <a>Worksout</a> */}
+        <Link href="./Homepage">
+               Workouts
+        </Link>
+        
+        </li>
       
-      <li><a>My Plan</a></li>
+      <li>
+        <Link href="/my-plan">
+                 My Plan
+          </Link>
+        </li>
     </ul>
   </div>
   
   {/* Button */}
  <div className="navbar-end gap-2">
-  <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-100">
+  {/* <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-100">
+    <span>Plan</span>
+    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-sm font-bold text-black">
+      0
+    </span>
+  </button> */}
+  <Link href="./my-plan">
+         <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-500">
     <span>Plan</span>
     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-sm font-bold text-black">
       0
     </span>
   </button>
+  
+  </Link>
 
-  <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-100">
+  <Link href="./my-plan">
+       <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-500">
     <span>Saved</span>
     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-sm font-bold text-black">
       0
     </span>
   </button>
+  </Link>
 </div>
 </div>
         </div>

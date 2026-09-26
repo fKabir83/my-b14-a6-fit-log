@@ -1,13 +1,16 @@
 import Image from "next/image";
 import BannerPage from "./banner/page";
 import MainPage from './mainshow/page'
+import HomePage from "./Homepage/page";
 
 export default function Home() {
   return (
+   
     <div>
-      <h1>Home Pagae</h1>
+      <HomePage></HomePage>
+      {/* <h1>Home Pagae</h1>
       <BannerPage></BannerPage>
-      <MainPage></MainPage>
+      <MainPage></MainPage> */}
 
     </div>
           
