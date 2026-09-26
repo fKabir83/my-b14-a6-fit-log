@@ -9,7 +9,7 @@ const FooterPage = () => {
                 <a className="btn btn-ghost text-[12px]">FITLOG</a>
             </div>
             <div>
-                <p className='text-[12px]'>2026 FITLOG Workout Library.Train hard, log honest</p>
+                <p className='text-[12px]'> ©2026 FITLOG Workout Library.Train hard, log honest</p>
             </div>
             
         </div>

@@ -1,3 +1,4 @@
+import AddToPlanButton from "@/components/AddToPlanButton";
 import React from "react";
 
 const getData = async () => {
@@ -114,9 +115,10 @@ const WorkoutDetails = async ({
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
 
-            <button className="flex-1 rounded-xl bg-[#C2F800] px-6 py-3 font-bold text-black hover:bg-[#a9d900] transition">
+            {/* <button className="flex-1 rounded-xl bg-[#C2F800] px-6 py-3 font-bold text-black hover:bg-[#a9d900] transition">
               Add to Today's Plan
-            </button>
+            </button> */}
+            <AddToPlanButton workout={workout} />
 
             <button className="flex-1 rounded-xl border border-[#C2F800] px-6 py-3 font-bold text-[#C2F800] hover:bg-[#C2F800] hover:text-black transition">
               Save for later

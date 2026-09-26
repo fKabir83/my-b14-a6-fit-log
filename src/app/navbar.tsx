@@ -76,7 +76,7 @@ const Navbar = () => {
   <Link href="./my-plan">
        <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 hover:bg-gray-500">
     <span>Saved</span>
-    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C2F800] text-sm font-bold text-black">
+    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ecefe4] text-sm font-bold text-black">
       0
     </span>
   </button>

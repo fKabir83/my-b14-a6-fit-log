@@ -82,7 +82,7 @@ const MyPlan = () => {
           {/* Tabs */}
           <div className="flex bg-[#181B22] rounded-xl overflow-hidden">
 
-            <button className="px-6 py-3 bg-[#242832] font-semibold">
+            <button className=" px-6 py-3 bg-[#242832] font-semibold">
               Today's Plan
             </button>
 
